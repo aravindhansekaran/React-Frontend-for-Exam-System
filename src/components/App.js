@@ -3,6 +3,11 @@ import AddStudent from './AddStudent';
 import AddFaculty from './AddFaculty';
 import AddCourse from './AddCourse';
 import Profile from './Profile';
+import AddSubject from './AddSubject';
+// import Loader from './Loader'
+import Home from './Home'
+// import Router from './Router';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class App extends React.Component{
 
@@ -31,26 +36,29 @@ class App extends React.Component{
 
         if (this.state.faculty){
             return (
-                <div>
-                    <AddStudent />
+                <div className="ui raised container segment">
+                    <Home />
                     <br />
-                    <AddCourse />
-                    <br />
-                    <AddFaculty />
-                    <br />
-                    <button onClick={this.handleClick} >Change State</button>
+                    <button onClick={this.handleClick}  className="ui button">Change State</button>
                 </div>
             );
         }
         return (
-            <div className="ui segment container">
-                <div className="ui three item menu">
-                    <a className="item active">Log in</a>
-                    <a className="item">DashBoard</a>
-                    <a className="item">About us</a>
+            <div className="ui raised container segment">
+                   <Profile />
+                <BrowserRouter>
+                <div className="ui four item menu">
+                    <Link to="/addstudent" className="item">Add Student</Link>
+                    <Link to="/addcourse" className="item">Add Course</Link>
+                    <Link to="/addfaculty" className="item">Add Faculty</Link>
+                    <Link to="/addsubject" className="item">Add Subject</Link>
                 </div>
-                <Profile />
-                <button onClick={this.handleClick} >Change State</button>
+                    <Route path="/addstudent" component={AddStudent} />
+                    <Route path="/addcourse" component={AddCourse} />
+                    <Route path="/addfaculty" component={AddFaculty} />
+                    <Route path="/addsubject" component={AddSubject} />
+                </BrowserRouter>
+                <button onClick={this.handleClick} className="ui button" >Change State</button>
             </div>
         );
         

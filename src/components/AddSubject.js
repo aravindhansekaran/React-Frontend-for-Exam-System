@@ -1,21 +1,21 @@
 import React from 'react';
 
-class AddCourse extends React.Component{
+class AddSubject extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            courseID: "",
-            courseName: "",
-            department: ""
+        this.state = {
+            subjectID : "",
+            subjectName : "",
+            courseID : ""
         };
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.setState({
-            courseID: "",
-            courseName: "",
-            department: ""
+            subjectID: "",
+            subjectName: "",
+            courseID: ""
         });
         console.log(this.state);
     }
@@ -28,9 +28,9 @@ class AddCourse extends React.Component{
     handleReset = (e) => {
         e.preventDefault();
         this.setState({
-            courseID: "",
-            courseName: "",
-            department: ""
+            subjectID: "",
+            subjectName: "",
+            courseID: ""
         });
         console.log(this.state);
     }
@@ -38,26 +38,27 @@ class AddCourse extends React.Component{
     render(){
         return (
             <div className="ui raised container segment">
-                <h4 className="ui header">Add a Course</h4>
+                <h4 className="ui header">Add a Subject</h4>
                 <form onSubmit={this.handleSubmit} className="ui form">
+                    <div className="field">
+                        <label>Subject ID</label>
+                        <br />
+                        <input className="ui input" type="text" name="subjectID" placeholder="eg. S1001" onChange={this.handleChange} value={this.state.subjectID} />
+                        <br />
+                    </div>
+                    <div className="field">
+                        <label>Subject Name</label>
+                        <br />
+                        <input className="ui input" type="text" name="subjectName" placeholder="eg. Operating Systems" onChange={this.handleChange} value={this.state.subjectName} />
+                        <br />
+                    </div>
                     <div className="field">
                         <label>Course ID</label>
                         <br />
                         <input className="ui input" type="text" name="courseID" placeholder="eg. C1001" onChange={this.handleChange} value={this.state.courseID} />
                         <br />
                     </div>
-                    <div className="field">
-                        <label>Course Name</label>
-                        <br />
-                        <input className="ui input" type="text" name="courseName" placeholder="eg. MCA" onChange={this.handleChange} value={this.state.courseName} />
-                        <br />
-                    </div>
-                    <div className="field">
-                        <label>Department</label>
-                        <br />
-                        <input className="ui input" type="text" name="department" placeholder="eg. Information Science & Technology" onChange={this.handleChange} value={this.state.department} />
-                        <br />
-                    </div>
+                    <br />
                     <div className="ui buttons">
                         <button type="reset" className="ui button" onClick={this.handleReset}>Erase</button>
                         <div className="or"></div>
@@ -68,6 +69,7 @@ class AddCourse extends React.Component{
             </div>
         );
     }
+    
 }
 
-export default AddCourse;
+export default AddSubject;

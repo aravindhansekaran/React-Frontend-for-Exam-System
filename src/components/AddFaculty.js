@@ -14,6 +14,12 @@ class AddFaculty extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.setState({
+            facultyID: "",
+            facultyName: "",
+            department: "",
+            expertise: ""
+        });
         console.log(this.state);
     }
 

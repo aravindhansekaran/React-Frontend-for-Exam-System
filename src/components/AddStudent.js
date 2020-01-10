@@ -15,6 +15,12 @@ class AddStudent extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.setState({
+            studentID: "",
+            studentName: "",
+            department: "",
+            course: ""
+        });
         console.log(this.state);
     }
 
